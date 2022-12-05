@@ -31,7 +31,7 @@ public class DegeneratePath extends Path {
 	@Override // required
 	protected void toArrayHelper(Stack<Work> worklist, Task[] array, int index) {
 		array[index] = element;
-		// don't add anything to worklist since there are no sub pahs here
+		// don't add anything to worklist since there are no sub paths here
 	}
 
 	// TODO Helpers for contains and get
