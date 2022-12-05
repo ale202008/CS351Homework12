@@ -79,11 +79,11 @@ public class ConcatPath extends Path {
 	}
 	
 	protected Task getHelper(Stack<Work> worklist, int index) {
-		if (index <= leftPath.size()) {
+		if (index < leftPath.size()) {
 			worklist.push(new Work(leftPath, index));
 		}
 		else {
-			worklist.push(new Work(rightPath, size-leftPath.size()));
+			worklist.push(new Work(rightPath, index/2));
 		}
 		
 		return null;
