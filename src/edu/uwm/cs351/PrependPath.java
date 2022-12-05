@@ -63,9 +63,7 @@ public class PrependPath extends Path {
 		if (index == 0) {
 			return task;
 		}
-		else {
-			worklist.push(new Work(rest, index-1));
-		}
+		worklist.push(new Work(rest, index-1));
 
 		return null;
 	}
