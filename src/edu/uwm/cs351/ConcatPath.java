@@ -16,6 +16,9 @@ import java.util.Stack;
 public class ConcatPath extends Path {
 	// TODO: Data Structure (no wellFormed needed)
 	// Remember: all fields should be final
+	private final Path leftPath;
+	private final Path rightPath;
+	private final int size;
 	
 	/**
 	 * Connect two paths
@@ -24,19 +27,15 @@ public class ConcatPath extends Path {
 	 */
 	public ConcatPath(Path p1, Path p2) {
 		// TODO
-		p1.append(p2.getLast());
+		leftPath = p1;
+		rightPath = p2;
+		size = p1.size() + p2.size() - 1;
+		leftPath.append(rightPath.getLast());
 	}
 	
 	@Override // required
 	public int size() {
-		int count = 0;
-		Task temp = this.getLast();
-		Set<Task> tempDependencies = temp.getDependencies();
-		while (tempDependencies != null) {
-			count++;
-			temp = tempDependencies;
-		}
-		return 0; // TODO
+		return size; // TODO
 	}
 
 	@Override // required
