@@ -51,6 +51,7 @@ public class PostpendPath extends Path {
 	}
 	
 	// TODO override helpers for contains and get
+	@Override // required
 	protected boolean containsHelper(Stack<Work> worklist, Task query) {
 		if (query == task) {
 			return true;
@@ -58,7 +59,7 @@ public class PostpendPath extends Path {
 		worklist.push(new Work(most, 0));
 		return false;
 	}
-	
+	@Override // required 
 	protected Task getHelper(Stack<Work> worklist, int index) {
 		if (index + 1 == size) {
 			return task;

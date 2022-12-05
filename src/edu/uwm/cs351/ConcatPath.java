@@ -69,6 +69,7 @@ public class ConcatPath extends Path {
 
 	// TODO: other helper methods
 	
+	@Override // required
 	protected boolean containsHelper(Stack<Work> worklist, Task query) {
 		if (query == first || query == last) {
 			return true;
@@ -78,6 +79,7 @@ public class ConcatPath extends Path {
 		return false;
 	}
 	
+	@Override // required 
 	protected Task getHelper(Stack<Work> worklist, int index) {
 		if (index < leftPath.size()) {
 			worklist.push(new Work(leftPath, index));
