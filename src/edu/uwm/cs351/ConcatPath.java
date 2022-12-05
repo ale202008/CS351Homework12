@@ -3,6 +3,8 @@ package edu.uwm.cs351;
 import java.util.Set;
 import java.util.Stack;
 
+import edu.uwm.cs351.Path.Work;
+
 /*
  * Andrew Le
  * Homework 12, COMPSCI 351
@@ -30,6 +32,8 @@ public class ConcatPath extends Path {
 	public ConcatPath(Path p1, Path p2) {
 		// TODO
 		if (p1.getLast() != p2.getFirst()) throw new IllegalArgumentException();
+		if (p1 == null || p2 == null) throw new NullPointerException();
+		if (p1.size() < 2|| p2.size() < 2) throw new IllegalArgumentException();
 		
 		first = p1.getFirst();
 		last = p2.getLast();
@@ -57,6 +61,9 @@ public class ConcatPath extends Path {
 	@Override // required
 	protected void toArrayHelper(Stack<Work> worklist, Task[] array, int index) {
 		// TODO
+
+		worklist.push(new Work(leftPath, index));
+		worklist.push(new Work(rightPath, index));
 	}
 
 	// TODO: other helper methods
