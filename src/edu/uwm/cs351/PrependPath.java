@@ -52,6 +52,10 @@ public class PrependPath extends Path {
 	
 	// TODO override helpers for contains and get
 	protected boolean containsHelper(Stack<Work> worklist, Task query) {
+		if (query == task) {
+			return true;
+		}
+		worklist.push(new Work(rest, 0));
 		return false;
 	}
 }

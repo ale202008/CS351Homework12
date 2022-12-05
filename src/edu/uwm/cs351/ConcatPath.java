@@ -68,6 +68,11 @@ public class ConcatPath extends Path {
 	// TODO: other helper methods
 	
 	protected boolean containsHelper(Stack<Work> worklist, Task query) {
+		if (query == first || query == last) {
+			return true;
+		}
+		worklist.push(new Work(leftPath, 0));
+		worklist.push(new Work(rightPath, 0));
 		return false;
 	}
 }
