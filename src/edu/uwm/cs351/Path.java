@@ -172,7 +172,7 @@ public abstract class Path {
 	public Task get(int index) {
 		// TODO: Use worklist and a new helper method
 		// Do not use toArray or toArrayHelper: that is wasteful of space.
-		if (index > size()-1) throw new IndexOutOfBoundsException(""+index);
+		if (index > size()-1 || index < 0) throw new IndexOutOfBoundsException(""+index);
 		
 		Task answer = null;
 		Stack<Work> worklist = new Stack<>();
