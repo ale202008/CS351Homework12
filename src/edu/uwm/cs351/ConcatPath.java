@@ -64,7 +64,7 @@ public class ConcatPath extends Path {
 	protected void toArrayHelper(Stack<Work> worklist, Task[] array, int index) {
 		// TODO
 		worklist.push(new Work(leftPath, index));
-		worklist.push(new Work(rightPath, size-leftPath.size()));
+		worklist.push(new Work(rightPath, index + leftPath.size() - 1 ));
 	}
 
 	// TODO: other helper methods
