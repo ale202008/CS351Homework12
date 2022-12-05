@@ -58,5 +58,10 @@ public class PostpendPath extends Path {
 		worklist.push(new Work(most, 0));
 		return false;
 	}
+	
+	protected Task getHelper(Stack<Work> worklist, int index) {
+		worklist.push(new Work(most, index));
+		return null;
+	}
 
 }

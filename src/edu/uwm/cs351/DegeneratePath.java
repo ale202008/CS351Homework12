@@ -40,4 +40,8 @@ public class DegeneratePath extends Path {
 	protected boolean containsHelper(Stack<Work> worklist, Task query) {
 		return element == query;
 	}
+	
+	protected Task getHelper(Stack<Work> worklist, int index) {
+		return null;
+	}
 }

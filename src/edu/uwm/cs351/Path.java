@@ -175,4 +175,7 @@ public abstract class Path {
 		throw new IndexOutOfBoundsException(""+index);
 	}
 	// TODO: Declare abstract helper method for get
+	
+	protected abstract Task getHelper(Stack<Work> worklist, int index);
+	
 }

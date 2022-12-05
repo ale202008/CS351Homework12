@@ -77,4 +77,10 @@ public class ConcatPath extends Path {
 		worklist.push(new Work(rightPath, 0));
 		return false;
 	}
+	
+	protected Task getHelper(Stack<Work> worklist, int index) {
+		worklist.push(new Work(leftPath, 0));
+		worklist.push(new Work(rightPath, size-leftPath.size()));
+		return null;
+	}
 }
