@@ -37,9 +37,11 @@ public class ConcatPath extends Path {
 		
 		first = p1.getFirst();
 		last = p2.getLast();
-		size = p1.size() + p2.size() - 1;
 		leftPath = p1;
 		rightPath = p2;
+		
+		size = p1.size() + p2.size() - 1;
+
 
 	}
 	
@@ -72,7 +74,7 @@ public class ConcatPath extends Path {
 			return true;
 		}
 		worklist.push(new Work(leftPath, 0));
-		worklist.push(new Work(rightPath, 1));
+		worklist.push(new Work(rightPath, 0));
 		return false;
 	}
 }

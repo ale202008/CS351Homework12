@@ -152,6 +152,9 @@ public abstract class Path {
 		while (!worklist.isEmpty()) {
 			Work w = worklist.pop();
 			answer = w.path.containsHelper(worklist, t);
+			if (answer) {
+				return answer;
+			}
 		}
 		return answer;
 	}
