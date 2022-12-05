@@ -60,10 +60,15 @@ public class PrependPath extends Path {
 	}
 	
 	protected Task getHelper(Stack<Work> worklist, int index) {
-		if (index > 0) {
-			worklist.push(new Work(rest, 0));
-			return null;
+		if (index == 0) {
+			return task;
 		}
-		return task;
+		else if (index == size) {
+			return last;
+		}
+		else {
+			worklist.push(new Work(rest, 0));
+		}
+		return null;
 	}
 }
