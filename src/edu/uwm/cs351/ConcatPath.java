@@ -72,7 +72,7 @@ public class ConcatPath extends Path {
 			return true;
 		}
 		worklist.push(new Work(leftPath, 0));
-		worklist.push(new Work(rightPath, 0));
+		worklist.push(new Work(rightPath, 1));
 		return false;
 	}
 }
