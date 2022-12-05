@@ -38,6 +38,6 @@ public class DegeneratePath extends Path {
 
 	// TODO Helpers for contains and get
 	protected boolean containsHelper(Stack<Work> worklist, Task query) {
-		return false;
+		return element == query;
 	}
 }

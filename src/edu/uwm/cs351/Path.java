@@ -145,9 +145,15 @@ public abstract class Path {
 		// The "offset" is not needed and can be ignored.
 		// DO NOT USE toArray or toArrayHelper!
 		// (That is wasteful of space.)
-		Task[] temp = new Task[size()];
+		
+		boolean answer = false;
 		Stack<Work> worklist = new Stack<>();
-		return false;
+		worklist.push(new Work(this, 0));
+		while (!worklist.isEmpty()) {
+			Work w = worklist.pop();
+			answer = w.path.containsHelper(worklist, t);
+		}
+		return answer;
 	}
 	
 	// TODO: Declare abstract helper method for contains
