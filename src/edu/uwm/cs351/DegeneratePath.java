@@ -42,6 +42,6 @@ public class DegeneratePath extends Path {
 	}
 	
 	protected Task getHelper(Stack<Work> worklist, int index) {
-		return null;
+		return element;
 	}
 }

@@ -153,7 +153,7 @@ public abstract class Path {
 			Work w = worklist.pop();
 			answer = w.path.containsHelper(worklist, t);
 			if (answer) {
-				return answer;
+				break;
 			}
 		}
 		return answer;
@@ -172,7 +172,17 @@ public abstract class Path {
 	public Task get(int index) {
 		// TODO: Use worklist and a new helper method
 		// Do not use toArray or toArrayHelper: that is wasteful of space.
-		throw new IndexOutOfBoundsException(""+index);
+		if (index > size()-1) throw new IndexOutOfBoundsException(""+index);
+		
+		Task answer = null;
+		Stack<Work> worklist = new Stack<>();
+		worklist.push(new Work(this, 0));
+		while (!worklist.isEmpty()) {
+			Work w = worklist.pop();
+			answer = w.path.getHelper(worklist, index);
+		}
+		
+		return answer;
 	}
 	// TODO: Declare abstract helper method for get
 	
