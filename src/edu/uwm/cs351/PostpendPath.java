@@ -63,11 +63,8 @@ public class PostpendPath extends Path {
 		if (index == 0) {
 			return start;
 		}
-		else if (index == size) {
-			return task;
-		}
 		else {
-			worklist.push(new Work(most, 0));
+			worklist.push(new Work(most, index));
 		}
 		return null;
 	}

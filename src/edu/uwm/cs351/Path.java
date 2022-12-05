@@ -176,10 +176,10 @@ public abstract class Path {
 		
 		Task answer = null;
 		Stack<Work> worklist = new Stack<>();
-		worklist.push(new Work(this, 0));
+		worklist.push(new Work(this, index));
 		while (!worklist.isEmpty()) {
 			Work w = worklist.pop();
-			answer = w.path.getHelper(worklist, index);
+			answer = w.path.getHelper(worklist, w.offset);
 		}
 		
 		return answer;

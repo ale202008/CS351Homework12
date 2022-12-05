@@ -63,11 +63,11 @@ public class PrependPath extends Path {
 		if (index == 0) {
 			return task;
 		}
-		else if (index == size) {
+		else if (index + 1 == size) {
 			return last;
 		}
 		else {
-			worklist.push(new Work(rest, 0));
+			worklist.push(new Work(rest, index+1));
 		}
 		return null;
 	}
