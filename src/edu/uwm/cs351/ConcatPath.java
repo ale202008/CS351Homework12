@@ -18,6 +18,8 @@ public class ConcatPath extends Path {
 	// Remember: all fields should be final
 	private final Path leftPath;
 	private final Path rightPath;
+	private final Task first;
+	private final Task last;
 	private final int size;
 	
 	/**
@@ -27,10 +29,14 @@ public class ConcatPath extends Path {
 	 */
 	public ConcatPath(Path p1, Path p2) {
 		// TODO
+		if (p1.getLast() != p2.getFirst()) throw new IllegalArgumentException();
+		
+		first = p1.getFirst();
+		last = p2.getLast();
+		size = p1.size() + p2.size() - 1;
 		leftPath = p1;
 		rightPath = p2;
-		size = p1.size() + p2.size() - 1;
-		leftPath.append(rightPath.getLast());
+
 	}
 	
 	@Override // required
@@ -40,12 +46,12 @@ public class ConcatPath extends Path {
 
 	@Override // required
 	public Task getFirst() {
-		return null; // TODO
+		return first; // TODO
 	}
 
 	@Override // required
 	public Task getLast() {
-		return null; // TODO
+		return last; // TODO
 	}
 
 	@Override // required
