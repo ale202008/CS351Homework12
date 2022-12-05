@@ -83,7 +83,7 @@ public class ConcatPath extends Path {
 			worklist.push(new Work(leftPath, index));
 		}
 		else {
-			worklist.push(new Work(rightPath, index/2));
+			worklist.push(new Work(rightPath, index + 1 - leftPath.size()));
 		}
 		
 		return null;
