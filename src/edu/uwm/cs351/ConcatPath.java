@@ -66,4 +66,8 @@ public class ConcatPath extends Path {
 	}
 
 	// TODO: other helper methods
+	
+	protected boolean containsHelper(Stack<Work> worklist, Task query) {
+		return false;
+	}
 }

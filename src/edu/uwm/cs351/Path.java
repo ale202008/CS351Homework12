@@ -2,6 +2,8 @@ package edu.uwm.cs351;
 
 import java.util.Stack;
 
+import edu.uwm.cs351.Path.Work;
+
 /**
  * A sequence of paths where each depends on the previous one.
  */
@@ -143,10 +145,14 @@ public abstract class Path {
 		// The "offset" is not needed and can be ignored.
 		// DO NOT USE toArray or toArrayHelper!
 		// (That is wasteful of space.)
+		Task[] temp = new Task[size()];
+		Stack<Work> worklist = new Stack<>();
 		return false;
 	}
 	
 	// TODO: Declare abstract helper method for contains
+	
+	protected abstract boolean containsHelper(Stack<Work> worklist, Task query);
 	
 	/**
 	 * Return the task at the given index from the path.

@@ -2,6 +2,8 @@ package edu.uwm.cs351;
 
 import java.util.Stack;
 
+import edu.uwm.cs351.Path.Work;
+
 /**
  * A path created by adding a new task to the end of an existing path.
  */
@@ -49,5 +51,8 @@ public class PostpendPath extends Path {
 	}
 	
 	// TODO override helpers for contains and get
+	protected boolean containsHelper(Stack<Work> worklist, Task query) {
+		return false;
+	}
 
 }

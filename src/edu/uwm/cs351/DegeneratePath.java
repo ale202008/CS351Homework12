@@ -2,6 +2,8 @@ package edu.uwm.cs351;
 
 import java.util.Stack;
 
+import edu.uwm.cs351.Path.Work;
+
 /**
  * A path without edges, just a single task.
  */
@@ -35,4 +37,7 @@ public class DegeneratePath extends Path {
 	}
 
 	// TODO Helpers for contains and get
+	protected boolean containsHelper(Stack<Work> worklist, Task query) {
+		return false;
+	}
 }
