@@ -1,5 +1,6 @@
 package edu.uwm.cs351;
 
+import java.util.Set;
 import java.util.Stack;
 
 /*
@@ -23,10 +24,18 @@ public class ConcatPath extends Path {
 	 */
 	public ConcatPath(Path p1, Path p2) {
 		// TODO
+		p1.append(p2.getLast());
 	}
 	
 	@Override // required
 	public int size() {
+		int count = 0;
+		Task temp = this.getLast();
+		Set<Task> tempDependencies = temp.getDependencies();
+		while (tempDependencies != null) {
+			count++;
+			temp = tempDependencies;
+		}
 		return 0; // TODO
 	}
 
