@@ -2,6 +2,11 @@ package edu.uwm.cs351;
 
 import java.util.Stack;
 
+/*
+ * Andrew Le
+ * Homework 12, COMPSCI 351
+ */
+
 /**
  * A path built up by concatenating two paths.
  * It doesn't add any edges.  The lengths are added, but the size of the result is
