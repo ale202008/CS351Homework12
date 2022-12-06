@@ -38,10 +38,13 @@ public class TopologicalSort {
 		if (!visited.contains(v)) {
 			visited.add(v);
 			for (Task t: v.getDependencies()) {
-				
+				TSortHelper(t, visited, stack);
 			}
+			schedule.append(v);
 		}
-		
+		else if(!visited.contains(v)){
+
+		}
 		return null;
 	}
 	
