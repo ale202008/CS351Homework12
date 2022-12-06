@@ -25,29 +25,34 @@ public class TopologicalSort {
 		Set<Task> visited = new HashSet<Task>();
 		
 		for (Task i : tasks) {
-			TSortHelper(i, visited);
+			Path hey = TSortHelper(i, visited, tasks);
+			if (hey != null && hey.isCycle()) {
+				cycle = hey;
+			}
 		}
 		
 	}
 	
 	// TODO: space for a (temporary) recursive helper method,
 	// but you will have to stop using it (see homework description).
-	private Path TSortHelper(Task v, Set<Task> visited) {
+	private Path TSortHelper(Task v, Set<Task> visited, Set<Task> tasks) {
 		
 		if (!visited.contains(v)) {
 			visited.add(v);
 			for (Task t: v.getDependencies()) {
-				Path problem = TSortHelper(t, visited);
-				if (problem != null && problem.isCycle()) {
-					return problem;
-				}
-				else if (problem != null) {
-					return problem.prepend(v);
+				if (tasks.contains(t)) {
+					Path problem = TSortHelper(t, visited, tasks);
+					if (problem != null && problem.isCycle()) {
+						return problem;
+					}
+					else if (problem != null) {
+						return problem.append(v);
+					}
 				}
 			}
 			schedule.append(v);
 		}
-		else if (visited.contains(v) && !schedule.contains(v)){
+		else if (!schedule.contains(v)){
 			Path temp = new DegeneratePath(v);
 			return temp;
 		}
