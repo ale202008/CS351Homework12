@@ -22,27 +22,26 @@ public class TopologicalSort {
 	public TopologicalSort(Set<Task> tasks) {
 		// TODO
 		schedule = new Schedule();
+		Stack<Task> stack = new Stack<Task>();
 		for (Task i : tasks) {
-			TSortHelper(i);
+			TSortHelper(i, stack);
 		}
 		
 	}
 	
 	// TODO: space for a (temporary) recursive helper method,
 	// but you will have to stop using it (see homework description).
-	private Path TSortHelper(Task t) {
+	private Path TSortHelper(Task t, Stack<Task> stack) {
 
 		if (!schedule.contains(t)) {
-			schedule.append(t);
 			for (Task i: t.getDependencies()) {
-				Path temp = TSortHelper(i);
+				Path temp = TSortHelper(i, stack);
 				if (t == i) {
 					cycle = temp;
 					return cycle;
 				}
-				else if (!schedule.contains(t)) {
-					
-				}
+				
+
 			}
 		}
 
