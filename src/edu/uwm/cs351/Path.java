@@ -4,6 +4,11 @@ import java.util.Stack;
 
 import edu.uwm.cs351.Path.Work;
 
+/*
+ * Andrew Le
+ * Homework 12, COMPSCI 351
+ */
+
 /**
  * A sequence of paths where each depends on the previous one.
  */
